@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1028px;
+  min-width: 300px;
+
+  // position: relative;
+
+  // color: $color-primary;
+  font-family: "Roboto";
+  // font-weight: 500;
+
+  main {
+    // width: 100%;
+    // margin: 0 auto;
+    // max-width: $desktop-max-width;
+    // padding: 0 20px 0px;
+  }
+  // .root {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: space-between;
+  //   min-height: 100vh;
+  // }
+}
+a {
+  font-size: 24px;
+  text-decoration: none;
+  color: $color-2;
+  &:hover {
+    cursor: pointer;
+  }
+}
+ul {
+  list-style-type: none;
+}
