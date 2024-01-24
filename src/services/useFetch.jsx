@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-function useFetch(url, userInfos) {
-  const [data, setData] = useState([]);
+function useFetch(url) {
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -18,7 +18,7 @@ function useFetch(url, userInfos) {
     };
     getData();
   }, [url]);
-  // if (userInfos) return;
+  console.log("🚀 ~ data:", data);
   return data;
 }
 
