@@ -4,7 +4,8 @@ const theme = {
     bgrd: "#020203 ", // black-ish
     color2: "white", // white
     color3: "#282d30", // light dark
-    color4: "#74798c", // light grey
+    color4: "#74798c", //  grey
+    color5: "#FBFBFB", // light grey
   },
   header: {
     height: "90px",

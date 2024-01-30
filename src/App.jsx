@@ -14,14 +14,9 @@ const router = createBrowserRouter([
         element: <Connexion />,
       },
       {
-        index: "/profile",
+        path: "profile/:id",
         element: <Profile />,
       },
-
-      // {
-      // path: "*",
-      // element: <NotFound />,
-      // },
     ],
   },
 ]);
