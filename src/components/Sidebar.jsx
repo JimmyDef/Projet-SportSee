@@ -4,12 +4,13 @@ import logoSwim from "./../assets/swim-icon.svg";
 import logoBike from "./../assets/biking-icon.svg";
 import logoWorkOut from "./../assets/workout-icon.svg";
 import styled from "styled-components";
+import { colors, header } from "../variables";
 
 const Aside = styled.aside`
  
-  background-color: ${(props) => props.theme.colors.bgrd};
+  background-color: ${colors.bgrd};
   width: 110px;
-  min-height: calc(100dvh - ${(props) => props.theme.header.height} );
+  min-height: calc(100dvh - ${header.bigScreenHeight} );
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
@@ -49,9 +50,22 @@ p {
   font-weight: 500;
   transform: rotate(-90deg) translateX( 50%);
   width: 150px;
-  
-
+  }
+@media (max-width: 1024px) {
+ width: 75px;
+  min-height: calc(100dvh - 68px );
+  ul {
+    margin: 150px 0 0;
+    width: 50px;
+     height: 280px;
+   li {
+    background-color: white;
+    width: 100%;
+    height: 50px;
+  }
+  }
 }
+
 
 `;
 

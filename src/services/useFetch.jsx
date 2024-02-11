@@ -1,22 +1,23 @@
 import { useEffect, useState } from "react";
-import FormatData from "./DataModel";
+import {
+  FormatUserData,
+  FromatPerfData,
+  FormatAverageSessionData,
+} from "./DataModel";
 
-const BASE_URL = "http://localhost:5173/src/mock/";
-// const BASE_URL = "http://localhost:3000/user/";
-
-function useFetch(path, userId, options) {
+function useFetch(path, userId) {
   const [fetchedData, setData] = useState({});
 
-  let url = `${BASE_URL}${userId}/`;
+  // let url = `${import.meta.env.VITE_BASE_URL_MOCKED}${userId}/`;
+  // if (path === "user") url += "user.json";
+  // if (path === "userActivity") url += "activity.json";
+  // if (path === "userAverageSessions") url += "average-sessions.json";
+  // if (path === "userPerformance") url += "performance.json";
 
-  if (path === "user") url += "user.json";
-  if (path === "userActivity") url += "activity.json";
-  if (path === "userAverageSessions") url += "average-sessions.json";
-  if (path === "userPerformance") url += "performance.json";
-
-  // if (path === "userActivity") url += "activity";
-  // if (path === "userAverageSessions") url += "average-sessions";
-  // if (path === "userPerformance") url += "performance";
+  let url = `${import.meta.env.VITE_BASE_URL}${userId}/`;
+  if (path === "userActivity") url += "activity";
+  if (path === "userAverageSessions") url += "average-sessions";
+  if (path === "userPerformance") url += "performance";
 
   useEffect(() => {
     const getData = async () => {
@@ -24,8 +25,18 @@ function useFetch(path, userId, options) {
         const res = await fetch(url);
         const data = await res.json();
 
-        if (options === "formatData") {
-          const formattedData = new FormatData(data.data).getUserData();
+        if (path === "user" || !path) {
+          const formattedData = new FormatUserData(data.data).getUserData();
+          setData(formattedData);
+        } else if (path === "userPerformance") {
+          const formattedData = new FromatPerfData(data.data).getPerfData();
+
+          setData(formattedData);
+        } else if (path === "userAverageSessions") {
+          const formattedData = new FormatAverageSessionData(
+            data.data
+          ).getAverageSessionData();
+
           setData(formattedData);
         } else {
           setData(data.data);
@@ -35,7 +46,7 @@ function useFetch(path, userId, options) {
       }
     };
     getData();
-  }, [url, options]);
+  }, [url, path]);
 
   return fetchedData;
 }

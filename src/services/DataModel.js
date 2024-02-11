@@ -1,4 +1,4 @@
-class FormatData {
+export class FormatUserData {
   constructor(data) {
     this._id = data.id;
     this._keyData = data.keyData;
@@ -20,10 +20,49 @@ class FormatData {
     return {
       id: this._id,
       keyData: formattedKeyData,
-      score: this._score,
+      score: this._score * 100,
       userInfos: this._userInfos,
     };
   }
 }
 
-export default FormatData;
+export class FromatPerfData {
+  constructor(data) {
+    this._performance = data.data;
+  }
+
+  getPerfData() {
+    const kind = {
+      1: "Cardio",
+      2: "Energie",
+      3: "endurance",
+      4: "Force",
+      5: "Vitesse",
+      6: "intensité",
+    };
+    const formattedPerf = this._performance.map((perf) => {
+      return {
+        value: perf.value,
+        subject: kind[perf.kind],
+      };
+    });
+
+    return formattedPerf;
+  }
+}
+export class FormatAverageSessionData {
+  constructor(data) {
+    this._sessions = data.sessions;
+  }
+
+  getAverageSessionData() {
+    const listOfDays = ["L", "M", "M", "J", "V", "S", "D"];
+    const formattedData = this._sessions.map((day, idx) => {
+      return {
+        name: listOfDays[idx],
+        sessionLength: day.sessionLength,
+      };
+    });
+    return formattedData;
+  }
+}

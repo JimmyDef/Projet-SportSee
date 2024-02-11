@@ -15,15 +15,19 @@ ul {
   list-style: none;
 }
 li {
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 3px 8px;
   background-color: #020203;
   text-align: center;
   border-radius: 50px;
   padding: 8px;
   width: 200px;
+  transition: all 0.3s;
   &:hover {
-    color: #f1f1f1;
+   
+    shadow: 5px 0 10px black; 
     background-color: red;
-    // border: 1px solid #f1f1f1;
+    transform: scale(1.1);
+    
   }
 
   a {
