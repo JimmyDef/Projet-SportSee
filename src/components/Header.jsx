@@ -18,22 +18,24 @@ const MainHeader = styled.header`
     width: 100%;
   }
   ul {
+    font-size: 1.5rem;
     display: flex;
     justify-content: space-around;
     }
-    @media (max-width: 1024px) {
+    @media (max-width: 1320px) {
       height: ${header.smallScreenHeight};
+      ul {
+ font-size: 1.2rem;
+      }     
     
-      nav {
-        // margin-top: 20px;
-      }
+    
     
     }`;
 
 const LogoLink = styled.div` 
   margin: 0 40px 0 28px;
-  @media (max-width: 1024px) {
-    margin-left: 18px;
+  @media (max-width: 1320px) {
+    margin-left: 8px;
   }
   `;
 

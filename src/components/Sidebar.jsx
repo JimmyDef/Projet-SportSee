@@ -48,20 +48,20 @@ p {
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  transform: rotate(-90deg) translateX( 50%);
+  transform: rotate(-90deg) translateX( 0%);
   width: 150px;
   }
-@media (max-width: 1024px) {
- width: 75px;
+@media (max-width: 1320px) {
+ width: 70px;
   min-height: calc(100dvh - 68px );
   ul {
-    margin: 150px 0 0;
-    width: 50px;
+    margin: 180px 0 0;
+    width: 40px;
      height: 280px;
    li {
     background-color: white;
     width: 100%;
-    height: 50px;
+    height: 40px;
   }
   }
 }

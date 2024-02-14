@@ -7,12 +7,16 @@ const CountCard = styled.div`
     padding: 0 32px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.05);
     display: flex;
-    width: 255px;
+    width: 230px;
     height: 125px;
-    @media (max-width: 1024px) {
+    @media (max-width: 1320px) {
+   width: 200px;
+    height: 80px;
+    }
+    @media (max-width: 1320px) {
       flex-direction: row;
         width: 165px;
-        height: 75px;
+        height: 70px;
         padding: 0 15px;
     }
     background-color: ${colors.color5};

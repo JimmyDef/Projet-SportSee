@@ -32,7 +32,7 @@ text-align: center;
 function RadarActivityChart() {
   const { id } = useParams();
 
-  const perfData = useFetch("userPerformance", id);
+  const data = useFetch("userPerformance", id);
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -54,7 +54,7 @@ function RadarActivityChart() {
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart
           outerRadius={70}
-          data={perfData}
+          data={data}
           startAngle={30}
           endAngle={-330}>
           <PolarGrid gridType="polygon" radialLines={false} />

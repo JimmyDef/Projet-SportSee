@@ -8,12 +8,24 @@ import lipIcon from "../assets/lipides-icon.svg";
 
 const CardsContainer = styled.section`
 margin: 0 auto;
+
   display: flex;
   flex-direction: column;
-  gap: 39px 20px;
-  @media (max-width: 1024px) {
+  justify-content: space-between;
+  align-items: space-between;
+
+
+  @media (max-width: 1320px) {
+    width: 100%;
       flex-direction: row;
-      margin-bottom: 35px;
+      margin-bottom: 8px;
+      justify-content: space-between;
+  align-items: space-between;
+
+       img {
+    width: 45px;
+    height: 45px;
+  }
     }
 `;
 

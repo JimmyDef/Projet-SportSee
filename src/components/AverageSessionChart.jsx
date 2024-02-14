@@ -57,7 +57,7 @@ text-align: center;
 
 function AverageSessionChart() {
   const { id } = useParams();
-  const dataUser = useFetch("userAverageSessions", id);
+  const data = useFetch("userAverageSessions", id);
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -74,6 +74,8 @@ function AverageSessionChart() {
     payload: PropTypes.array,
   };
   const CustomCursor = ({ points }) => {
+    console.log("🚀 ~ points:", points);
+
     return (
       <Rectangle
         fill="#000000"
@@ -105,7 +107,7 @@ function AverageSessionChart() {
         <LineChart
           width={730}
           height={250}
-          data={dataUser}
+          data={data}
           margin={{ top: 80, bottom: 16, left: 16, right: 16 }}>
           <XAxis
             dataKey="name"

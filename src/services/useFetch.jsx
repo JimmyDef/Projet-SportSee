@@ -3,21 +3,22 @@ import {
   FormatUserData,
   FromatPerfData,
   FormatAverageSessionData,
+  FormatActivityData,
 } from "./DataModel";
 
 function useFetch(path, userId) {
   const [fetchedData, setData] = useState({});
 
-  // let url = `${import.meta.env.VITE_BASE_URL_MOCKED}${userId}/`;
-  // if (path === "user") url += "user.json";
-  // if (path === "userActivity") url += "activity.json";
-  // if (path === "userAverageSessions") url += "average-sessions.json";
-  // if (path === "userPerformance") url += "performance.json";
+  let url = `${import.meta.env.VITE_BASE_URL_MOCKED}${userId}/`;
+  if (path === "user") url += "user.json";
+  if (path === "userActivity") url += "activity.json";
+  if (path === "userAverageSessions") url += "average-sessions.json";
+  if (path === "userPerformance") url += "performance.json";
 
-  let url = `${import.meta.env.VITE_BASE_URL}${userId}/`;
-  if (path === "userActivity") url += "activity";
-  if (path === "userAverageSessions") url += "average-sessions";
-  if (path === "userPerformance") url += "performance";
+  // let url = `${import.meta.env.VITE_BASE_URL}${userId}/`;
+  // if (path === "userActivity") url += "activity";
+  // if (path === "userAverageSessions") url += "average-sessions";
+  // if (path === "userPerformance") url += "performance";
 
   useEffect(() => {
     const getData = async () => {
@@ -36,6 +37,12 @@ function useFetch(path, userId) {
           const formattedData = new FormatAverageSessionData(
             data.data
           ).getAverageSessionData();
+
+          setData(formattedData);
+        } else if (path === "userActivity") {
+          const formattedData = new FormatActivityData(
+            data.data
+          ).getActivityData();
 
           setData(formattedData);
         } else {

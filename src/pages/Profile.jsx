@@ -8,17 +8,19 @@ import RadarActivityChart from "../components/RadarActivityChart";
 import AverageSessionChart from "../components/AverageSessionChart";
 import DailyBarChart from "../components/DailyBarChart";
 
-const Container = styled.div`
-margin: 65px auto;
+const Container = styled.section`
+margin: 40px 5%;
  @media (max-width: 1024px) {
-  margin: 30px auto;
+  margin: 20px 3%;
   }
  }
 `;
-const ChartsWrapper = styled.div`
+const ChartsWrapper = styled.section`
 flex-wrap: wrap;
 display: flex;
-gap: 20px;
+justify-content: space-between;
+gap: 40px 10px;
+
 section {
   border-radius: 5px;
   width: 260px;
@@ -44,6 +46,7 @@ font-weight: 400;
   font-size: 1.125rem;
   }
   @media (max-width: 1024px) {
+    margin-bottom: 30px;
     h1 {
       font-size: 2rem;
     }
@@ -52,31 +55,46 @@ font-weight: 400;
     }
   }
 `;
-
+const Div = styled.div` 
+display: flex;
+margin-bottom: 40px;
+flex-direction: row-reverse;
+justify-content: space-between;
+gap: 30px ;
+  @media (max-width: 1320px) {
+  flex-direction:column;
+  }
+  @media (max-width: 1024px) {
+  flex-direction:column;
+  }
+`;
 function Profile() {
   const { id } = useParams();
 
-  const userData = useFetch("user", id);
+  const data = useFetch("user", id);
 
   return (
     <Container>
-      {!userData || !userData.userInfos ? (
+      {!data || !data.userInfos ? (
         <Title>Chargement...</Title>
       ) : (
         <>
           <Title>
             <h1>
-              Bonjour <span>{userData.userInfos.firstName}</span>
+              Bonjour <span>{data.userInfos.firstName}</span>
             </h1>
             <h2>Félicitation ! Vous avez explosé vos objectifs hier 👏 </h2>
           </Title>
-          <CalorieDetails keyData={userData.keyData} />
-          <ChartsWrapper>
-            <DailyBarChart />
-            <ScoreChart score={userData.score} />
-            <AverageSessionChart />
-            <RadarActivityChart />
-          </ChartsWrapper>
+          <Div>
+            <CalorieDetails keyData={data.keyData} />
+            <ChartsWrapper>
+              <DailyBarChart />
+
+              <AverageSessionChart />
+              <RadarActivityChart />
+              <ScoreChart score={data.score} />
+            </ChartsWrapper>
+          </Div>
         </>
       )}
     </Container>

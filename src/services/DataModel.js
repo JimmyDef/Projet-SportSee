@@ -66,3 +66,19 @@ export class FormatAverageSessionData {
     return formattedData;
   }
 }
+export class FormatActivityData {
+  constructor(data) {
+    this._sessions = data.sessions;
+  }
+
+  getActivityData() {
+    const formattedActivity = this._sessions.map((act, idx) => {
+      return {
+        name: idx + 1,
+        kg: act.kilogram,
+        calories: act.calories,
+      };
+    });
+    return formattedActivity;
+  }
+}

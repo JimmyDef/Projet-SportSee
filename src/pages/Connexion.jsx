@@ -23,8 +23,7 @@ li {
   width: 200px;
   transition: all 0.3s;
   &:hover {
-   
-    shadow: 5px 0 10px black; 
+      shadow: 5px 0 10px black; 
     background-color: red;
     transform: scale(1.1);
     
