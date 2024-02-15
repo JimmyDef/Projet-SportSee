@@ -1,21 +1,21 @@
 import styled from "styled-components";
-import {
-  RadialBarChart,
-  RadialBar,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+import { RadialBarChart, RadialBar, Tooltip } from "recharts";
 import PropTypes from "prop-types";
 import { colors } from "../variables";
+import { Loader } from "./loader/Loaders";
 
 const Wrapper = styled.section`
 position : relative;
-background-color: ${colors.color5};
-  
+background-color: ${colors.color5};`;
+
+const P = styled.p`
+text-align: center;
+line-height: 250px;
+color: ${colors.color1};
 `;
 const H3 = styled.h3`
 position : absolute;
-font-size: 1rem;
+font-size: 15px;
 font-weight: 500;
 top: 25px;
 left: 25px;
@@ -34,7 +34,6 @@ top: 50%;
 left: 50%;
 position : absolute;
 text-align: center;
-
   p {
     text-align: center;
     line-height: 1.5rem;
@@ -53,9 +52,10 @@ function ScoreChart({ score }) {
     },
     {
       scale: score,
-      fill: "#FF0000",
+      fill: colors.primary,
     },
   ];
+
   return (
     <Wrapper>
       <H3>Score</H3>

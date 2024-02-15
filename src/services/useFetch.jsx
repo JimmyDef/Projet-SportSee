@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import {
   FormatUserData,
   FromatPerfData,
@@ -8,6 +9,8 @@ import {
 
 function useFetch(path, userId) {
   const [fetchedData, setData] = useState({});
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   let url = `${import.meta.env.VITE_BASE_URL_MOCKED}${userId}/`;
   if (path === "user") url += "user.json";
@@ -49,13 +52,16 @@ function useFetch(path, userId) {
           setData(data.data);
         }
       } catch (error) {
+        setError(error);
         console.log("🚀 ~getData error:", error);
+      } finally {
+        setLoading(false);
       }
     };
     getData();
   }, [url, path]);
 
-  return fetchedData;
+  return { fetchedData, error, loading };
 }
 
 export default useFetch;

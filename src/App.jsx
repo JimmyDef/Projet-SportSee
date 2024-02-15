@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootLayout from "./layout/RootLayout";
 import Profile from "./pages/Profile";
 import Connexion from "./pages/Connexion";
+import NotFound from "./pages/404";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,14 @@ const router = createBrowserRouter([
       {
         path: "profile/:id",
         element: <Profile />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+      {
+        path: "NotFound",
+        element: <NotFound />,
       },
     ],
   },

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { colors } from "../variables";
 
 const Section = styled.section`
 margin: 150px auto;
-
 h1 {
   text-align: center;
   margin-bottom: 100px;
@@ -16,7 +16,7 @@ ul {
 }
 li {
   box-shadow: rgba(0, 0, 0, 0.6) 0px 3px 8px;
-  background-color: #020203;
+  background-color: ${colors.color1};
   text-align: center;
   border-radius: 50px;
   padding: 8px;
@@ -24,8 +24,8 @@ li {
   transition: all 0.3s;
   &:hover {
       shadow: 5px 0 10px black; 
-    background-color: red;
-    transform: scale(1.1);
+    background-color:${colors.primary};
+    transform: scale(1.05);
     
   }
 
@@ -39,6 +39,7 @@ li {
     p:nth-child(2) {
       font-size: 0.8rem;
     }
+
   }
 `;
 

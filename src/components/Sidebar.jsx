@@ -7,15 +7,13 @@ import styled from "styled-components";
 import { colors, header } from "../variables";
 
 const Aside = styled.aside`
- 
-  background-color: ${colors.bgrd};
-  width: 110px;
-  min-height: calc(100dvh - ${header.bigScreenHeight} );
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
+background-color: ${colors.bgrd};
+width: 110px;
+min-height: calc(100dvh - ${header.bigScreenHeight} );
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+display: flex;
+flex-direction: column;
+align-items: center;
 
 nav {
   margin-bottom: 240px;
@@ -63,11 +61,8 @@ p {
     width: 100%;
     height: 40px;
   }
-  }
 }
-
-
-`;
+}`;
 
 function Sidebar() {
   return (
