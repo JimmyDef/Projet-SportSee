@@ -2,17 +2,11 @@ import styled from "styled-components";
 import { RadialBarChart, RadialBar, Tooltip } from "recharts";
 import PropTypes from "prop-types";
 import { colors } from "../variables";
-import { Loader } from "./loader/Loaders";
 
 const Wrapper = styled.section`
 position : relative;
 background-color: ${colors.color5};`;
 
-const P = styled.p`
-text-align: center;
-line-height: 250px;
-color: ${colors.color1};
-`;
 const H3 = styled.h3`
 position : absolute;
 font-size: 15px;
