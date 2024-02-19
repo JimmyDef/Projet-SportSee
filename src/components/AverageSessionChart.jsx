@@ -49,7 +49,7 @@ background-color: ${colors.color2};
 
 function AverageSessionChart() {
   const { id } = useParams();
-  const { fetchedData, loading, error } = useFetch("userAverageSessions", id);
+  const { fetchedData, isLoading, error } = useFetch("userAverageSessions", id);
 
   if (error)
     return (
@@ -60,7 +60,7 @@ function AverageSessionChart() {
 
   return (
     <Wrapper>
-      {loading ? (
+      {isLoading ? (
         <Loader extraClass="white" />
       ) : (
         <>
@@ -129,8 +129,6 @@ CustomTooltip.propTypes = {
   payload: PropTypes.array,
 };
 const CustomCursor = ({ points }) => {
-  console.log("🚀 ~ points:", points);
-
   return (
     <Rectangle
       fill="#000000"

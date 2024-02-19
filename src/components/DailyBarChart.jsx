@@ -79,7 +79,7 @@ p {
 
 function DailyBarChart() {
   const { id } = useParams();
-  const { fetchedData, loading, error } = useFetch("userActivity", id);
+  const { fetchedData, isLoading, error } = useFetch("userActivity", id);
 
   if (error)
     return (
@@ -90,7 +90,7 @@ function DailyBarChart() {
   return (
     <>
       <Wrapper>
-        {loading ? (
+        {isLoading ? (
           <Loader extraClass="red" />
         ) : (
           <>

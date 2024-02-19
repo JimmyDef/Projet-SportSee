@@ -38,7 +38,7 @@ background-color: ${colors.color2};
 function RadarActivityChart() {
   const { id } = useParams();
 
-  const { fetchedData, loading, error } = useFetch("userPerformance", id);
+  const { fetchedData, isLoading, error } = useFetch("userPerformance", id);
 
   if (error)
     return (
@@ -49,7 +49,7 @@ function RadarActivityChart() {
 
   return (
     <Wrapper>
-      {loading ? (
+      {isLoading ? (
         <Loader extraClass="white" />
       ) : (
         <ResponsiveContainer width="100%" height="100%">

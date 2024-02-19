@@ -74,13 +74,13 @@ gap: 30px ;
 
 function Profile() {
   const { id } = useParams();
-  const { fetchedData, loading, error } = useFetch("user", id);
+  const { fetchedData, isLoading, error } = useFetch("user", id);
 
   if (error) return <Navigate to="/NotFound" />;
 
   return (
     <Container>
-      {loading ? (
+      {isLoading ? (
         <LoaderInTo404 />
       ) : (
         <>
