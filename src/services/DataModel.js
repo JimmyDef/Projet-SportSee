@@ -26,7 +26,7 @@ export class FormatUserData {
   }
 }
 
-export class FromatPerfData {
+export class FormatPerfData {
   constructor(data) {
     this._performance = data.data;
   }

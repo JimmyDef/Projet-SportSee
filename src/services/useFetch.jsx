@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import {
   FormatUserData,
-  FromatPerfData,
+  FormatPerfData,
   FormatAverageSessionData,
   FormatActivityData,
 } from "./DataModel";
@@ -33,7 +33,7 @@ function useFetch(path, userId) {
           const formattedData = new FormatUserData(data.data).getUserData();
           setData(formattedData);
         } else if (path === "userPerformance") {
-          const formattedData = new FromatPerfData(data.data).getPerfData();
+          const formattedData = new FormatPerfData(data.data).getPerfData();
 
           setData(formattedData);
         } else if (path === "userAverageSessions") {
