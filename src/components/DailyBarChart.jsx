@@ -113,7 +113,7 @@ function DailyBarChart() {
                 margin={{ top: 100, right: 20, left: 50, bottom: 20 }}>
                 <CartesianGrid
                   strokeDasharray="5 5"
-                  horizontalPoints={[100, 188]}
+                  horizontalPoints={[100, 175]}
                   vertical={false}
                 />
                 <XAxis
