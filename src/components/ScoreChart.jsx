@@ -69,12 +69,7 @@ function ScoreChart({ score }) {
         barSize={13}
         startAngle={90}
         endAngle={450}>
-        <RadialBar
-          background={false}
-          clockWise={true}
-          cornerRadius={10}
-          dataKey="scale"
-        />
+        <RadialBar background={false} cornerRadius={10} dataKey="scale" />
 
         <Tooltip active={false} />
       </RadialBarChart>

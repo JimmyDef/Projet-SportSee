@@ -60,26 +60,15 @@ function RadarActivityChart() {
             endAngle={-330}>
             <PolarGrid gridType="polygon" radialLines={false} />
             <PolarAngleAxis
-              radius="100%"
               tickLine={false}
               dy={4}
               dataKey="subject"
               fontSize={12}
               stroke="white"
-              tickSize={15}
+              tickSize={20}
             />
-            <PolarRadiusAxis
-              angle={30}
-              tick={false}
-              axisLine={false}
-              domain={[0, 260]}
-            />
-            <Radar
-              dataKey="value"
-              stroke="transparent"
-              fill={colors.primary}
-              fillOpacity={0.8}
-            />
+            <PolarRadiusAxis tick={false} axisLine={false} domain={[0, 260]} />
+            <Radar dataKey="value" fill={colors.primary} fillOpacity={0.8} />
             <Tooltip content={CustomTooltip} cursor={false} />
           </RadarChart>
         </ResponsiveContainer>

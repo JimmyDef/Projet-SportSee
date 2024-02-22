@@ -30,7 +30,7 @@ export class FormatPerfData {
   constructor(data) {
     this._performance = data.data;
   }
-
+  // RADARCHART
   getPerfData() {
     const kind = {
       1: "Cardio",
