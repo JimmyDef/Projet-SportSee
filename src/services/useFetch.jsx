@@ -12,16 +12,17 @@ function useFetch(path, userId) {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const mockedData = true;
   let url;
 
-  if (mockedData) {
+  if (import.meta.env.VITE_DATA_IS_MOCKED === "true") {
+    console.log("true");
     url = `${import.meta.env.VITE_BASE_URL_MOCKED}${userId}/`;
     if (path === "user") url += "user.json";
     if (path === "userActivity") url += "activity.json";
     if (path === "userAverageSessions") url += "average-sessions.json";
     if (path === "userPerformance") url += "performance.json";
   } else {
+    console.log("fasle");
     url = `${import.meta.env.VITE_BASE_URL}${userId}/`;
     if (path === "userActivity") url += "activity";
     if (path === "userAverageSessions") url += "average-sessions";
