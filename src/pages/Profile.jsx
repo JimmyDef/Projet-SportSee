@@ -74,9 +74,9 @@ gap: 30px ;
 
 function Profile() {
   const { id } = useParams();
-  const { fetchedData, isLoading, error } = useFetch("user", id);
+  const { fetchedData, isLoading, isError } = useFetch("user", id);
 
-  if (error) return <Navigate to="/NotFound" />;
+  if (isError) return <Navigate to="/NotFound" />;
 
   return (
     <Container>
@@ -88,7 +88,7 @@ function Profile() {
             <h1>
               Bonjour <span>{fetchedData.userInfos.firstName}</span>
             </h1>
-            <h2>Félicitation ! Vous avez explosé vos objectifs hier 👏 </h2>
+            <h2>Félicitation ! Vous avez explosé vos objectifs hier</h2>
           </Title>
           <Div>
             <CalorieDetails keyData={fetchedData.keyData} />

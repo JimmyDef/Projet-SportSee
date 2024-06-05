@@ -38,9 +38,9 @@ background-color: ${colors.color2};
 function RadarActivityChart() {
   const { id } = useParams();
 
-  const { fetchedData, isLoading, error } = useFetch("userPerformance", id);
+  const { fetchedData, isLoading, isError } = useFetch("userPerformance", id);
 
-  if (error)
+  if (isError)
     return (
       <Wrapper>
         <P>Données innaccessibles.</P>

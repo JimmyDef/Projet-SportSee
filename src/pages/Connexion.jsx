@@ -28,7 +28,7 @@ li {
     transform: scale(1.05);
     
   }
-
+}
   a {
     color: white;
     text-decoration: none;

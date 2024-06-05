@@ -49,9 +49,12 @@ background-color: ${colors.color2};
 
 function AverageSessionChart() {
   const { id } = useParams();
-  const { fetchedData, isLoading, error } = useFetch("userAverageSessions", id);
+  const { fetchedData, isLoading, isError } = useFetch(
+    "userAverageSessions",
+    id
+  );
 
-  if (error)
+  if (isError)
     return (
       <Wrapper>
         <P>Données innaccessibles.</P>

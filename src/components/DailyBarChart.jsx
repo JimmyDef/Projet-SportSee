@@ -79,9 +79,9 @@ p {
 
 function DailyBarChart() {
   const { id } = useParams();
-  const { fetchedData, isLoading, error } = useFetch("userActivity", id);
+  const { fetchedData, isLoading, isError } = useFetch("userActivity", id);
 
-  if (error)
+  if (isError)
     return (
       <Wrapper>
         <P>Données innaccessibles.</P>
