@@ -5,8 +5,9 @@ import useFetch from "../../services/useFetch";
 import { it, expect, vi } from "vitest";
 
 vi.mock("../../services/useFetch");
-/** vi.mock entraine des perturbations dans les autres blocs peut importe ou il est placé dans le       document. Je l'ai donc isolé dans un fichier séparé pour offire option de test différent.
- une alternative a été trouvé (redéfinition de la méthode "global.fetch")
+/** vi.mock entraine des perturbations dans les autres blocs peut importe ou il est placé dans le  * document.
+ * Je l'ai donc isolé dans un fichier séparé pour offire option de test différent.
+ *  une alternative a été trouvé (redéfinition de la méthode "global.fetch")
  */
 it("redirects to not found page on error", async () => {
   useFetch.mockReturnValue({

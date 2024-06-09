@@ -36,23 +36,19 @@ function useFetch(path, userId) {
         if (path === "user" || !path) {
           const formattedData = new FormatUserData(data.data).getUserData();
           setData(formattedData);
-          // console.log("🚀 ~ formattedData:", formattedData);
         } else if (path === "userPerformance") {
           const formattedData = new FormatPerfData(data.data).getPerfData();
           setData(formattedData);
-          // console.log("🚀 ~ formattedData:", formattedData);
         } else if (path === "userAverageSessions") {
           const formattedData = new FormatAverageSessionData(
             data.data
           ).getAverageSessionData();
           setData(formattedData);
-          // console.log("🚀 ~ formattedData:", formattedData);
         } else if (path === "userActivity") {
           const formattedData = new FormatActivityData(
             data.data
           ).getActivityData();
           setData(formattedData);
-          // console.log("🚀 ~ formattedData:", formattedData);
         } else {
           setData(data.data);
         }

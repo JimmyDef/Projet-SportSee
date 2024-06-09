@@ -1,14 +1,10 @@
-import { it, describe, expect, vi, afterEach } from "vitest";
+import { it, describe, expect, vi } from "vitest";
 import useFetch from "../../services/useFetch";
 import { renderHook, waitFor } from "@testing-library/react";
 
 import userDataMocked from "../../mock/12/user.json";
 
 describe("useFetch", () => {
-  afterEach(() => {
-    vi.clearAllMocks();
-  });
-
   it("Should fetch user data", async () => {
     // eslint-disable-next-line no-undef
     global.fetch = vi.fn(() =>

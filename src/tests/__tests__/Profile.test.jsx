@@ -1,4 +1,4 @@
-import { it, describe, expect, beforeEach, vi } from "vitest";
+import { it, describe, expect, vi } from "vitest";
 import Profile from "./../../pages/Profile";
 import { screen, render, renderHook, waitFor } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
@@ -30,10 +30,6 @@ describe("Profile", () => {
   });
 
   describe("When an error  occurs while fetching api - fetch version", () => {
-    beforeEach(() => {
-      vi.resetAllMocks(); // Réinitialise tous les mocks avant chaque test
-    });
-
     it("Should redirect to page NotFound(404) ", async () => {
       // eslint-disable-next-line no-undef
       global.fetch = vi.fn(() =>
