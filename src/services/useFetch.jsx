@@ -9,6 +9,7 @@ import {
 
 function useFetch(path, userId) {
   const [fetchedData, setData] = useState({});
+
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -16,6 +17,7 @@ function useFetch(path, userId) {
 
   if (import.meta.env.VITE_DATA_IS_MOCKED === "true") {
     url = `${import.meta.env.VITE_BASE_URL_MOCKED}${userId}/`;
+
     if (path === "user") url += "user.json";
     if (path === "userActivity") url += "activity.json";
     if (path === "userAverageSessions") url += "average-sessions.json";
@@ -31,26 +33,25 @@ function useFetch(path, userId) {
     const getData = async () => {
       try {
         const res = await fetch(url);
-        const data = await res.json();
+        const { data } = await res.json();
 
         if (path === "user" || !path) {
-          const formattedData = new FormatUserData(data.data).getUserData();
+          const formattedData = new FormatUserData(data).getUserData();
+          console.log("🚀 ~ fetchedData:", fetchedData);
           setData(formattedData);
         } else if (path === "userPerformance") {
-          const formattedData = new FormatPerfData(data.data).getPerfData();
+          const formattedData = new FormatPerfData(data).getPerfData();
           setData(formattedData);
         } else if (path === "userAverageSessions") {
           const formattedData = new FormatAverageSessionData(
-            data.data
+            data
           ).getAverageSessionData();
           setData(formattedData);
         } else if (path === "userActivity") {
-          const formattedData = new FormatActivityData(
-            data.data
-          ).getActivityData();
+          const formattedData = new FormatActivityData(data).getActivityData();
           setData(formattedData);
         } else {
-          setData(data.data);
+          setData(data);
         }
       } catch (error) {
         setIsError(true);
@@ -59,6 +60,7 @@ function useFetch(path, userId) {
         setIsLoading(false);
       }
     };
+
     getData();
   }, [url, path]);
 

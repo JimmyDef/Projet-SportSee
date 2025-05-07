@@ -25,7 +25,7 @@ li {
   &:hover {
       shadow: 5px 0 10px black; 
     background-color:${colors.primary};
-    transform: scale(1.05);
+   
     
   }
 }

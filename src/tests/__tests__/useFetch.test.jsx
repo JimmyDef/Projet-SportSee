@@ -32,7 +32,6 @@ describe("useFetch", () => {
     const { result } = renderHook(() => useFetch("user", "12"));
     expect(result.current.isLoading).toBe(true);
     await waitFor(() => expect(result.current.isLoading).toBe(false));
-    expect(result.current.isLoading).toBe(false);
     expect(result.current.isError).toBe(false);
     expect(result.current.fetchedData).toEqual(expectedUserData);
   });

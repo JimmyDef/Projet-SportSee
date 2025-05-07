@@ -46,8 +46,8 @@ p {
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  transform: rotate(-90deg) translateX( 0%);
-  width: 150px;
+  transform:  rotate(-90deg) translateX(30px);
+  width: 140px;
   }
 @media (max-width: 1320px) {
  width: 70px;
